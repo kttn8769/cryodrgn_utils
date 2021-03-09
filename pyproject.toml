@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "cryodrgn_utils"
+version = "0.1.0"
+description = "A collection of convenient python tools for cryoDRGN."
+authors = ["Kotaro Tanaka <kttn8769@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+numpy = "^1.20.1"
+matplotlib = "^3.3.4"
+scikit-learn = "^0.24.1"
+imageio = "^2.9.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.4"
+yapf = "^0.30.0"
+
+[tool.poetry.scripts]
+cryodrgn_utils_plot_z = "cryodrgn_utils.cryodrgn_utils_plot_z:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
