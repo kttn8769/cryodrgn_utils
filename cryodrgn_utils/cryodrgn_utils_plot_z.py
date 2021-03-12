@@ -9,8 +9,12 @@ import argparse
 
 import imageio
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+
+
+DEFAULT_MARKER_SIZE = int(mpl.rcParams['lines.markersize'] ** 2)
 
 
 def parse_args():
@@ -33,6 +37,9 @@ def parse_args():
     )
     parser.add_argument(
         '--dpi', type=int, default=200, help='Figure dpi.'
+    )
+    parser.add_argument(
+        '--marker-size', type=int, default=DEFAULT_MARKER_SIZE, help='Marker size in scatter plot.'
     )
     parser.add_argument(
         '--outfile-prefix', default='z', help='Output filename prefix.'
@@ -95,7 +102,7 @@ def main():
     output_figs = []
     for Z, epoch in zip(Zs, epochs_sorted):
         fig, ax = plt.subplots(figsize=(args.figsize, args.figsize), dpi=args.dpi)
-        ax.scatter(Z[:, 0], Z[:, 1])
+        ax.scatter(Z[:, 0], Z[:, 1], s=args.marker_size)
         ax.set_xlabel('PC 1')
         ax.set_ylabel('PC 2')
         ax.set_title(f'Epoch {epoch:03d}')
