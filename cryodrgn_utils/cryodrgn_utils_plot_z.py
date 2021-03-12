@@ -36,7 +36,7 @@ def parse_args():
         '--figsize', type=int, default=5, help='Figure size in inches.'
     )
     parser.add_argument(
-        '--dpi', type=int, default=200, help='Figure dpi.'
+        '--dpi', type=int, default=100, help='Figure dpi.'
     )
     parser.add_argument(
         '--marker-size', type=int, default=DEFAULT_MARKER_SIZE, help='Marker size in scatter plot.'
